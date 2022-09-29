@@ -1,0 +1,15 @@
+NOTES APPLICATION :
+-------------------
+  ->  NOTES LIST
+        
+        -->  Add Notes Details 
+        -->  Display Data
+ 
+ --> CONTACTS
+    
+        --> Add Contant Details
+        --> Display Data
+        
+ --> DELETE 
+ 
+          ---> Delete the both notes and contact using index
