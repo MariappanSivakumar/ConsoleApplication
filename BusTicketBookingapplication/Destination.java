@@ -11,7 +11,8 @@ public class Destination {
     private int booking=0;
     private String travelstate=new String();
     private int money=0;
-    private int avaliableSeats[] = new int[]{20, 20, 20, 20, 20};
+    private String username=new String();
+    private static int avaliableSeats[] = new int[]{20, 20, 20, 20, 20};
     public void display()
     {
         System.out.println("*********************************************************************************");
@@ -30,10 +31,39 @@ public class Destination {
         
         accessDestination();
     }
+    private boolean usernameValidate(String username)
+    {
+        boolean f=false;
+        
+        for(int i=0;i<username.length();i++)
+        {
+            if( ! (username.charAt(i)>='a' &&  username.charAt(i)<='z') )
+               if( ! (username.charAt(i) >='A') && username.charAt(i)<='Z' )
+                   return true;
+        }
+        
+        return f;
+    }
     private boolean bookMyTicket()
     {
         boolean f=false;
         booking=0;
+        int n=0;
+        while(true)
+        {
+            System.out.print("ENTER THE PASSENGER NAME >");
+            try 
+            {
+                username = (new java.io.BufferedReader(new java.io.InputStreamReader(System.in))).readLine();
+                if(usernameValidate(username))
+                    n=Integer.parseInt("g");
+                break;
+            } catch (IOException ex ) {}
+            catch(NumberFormatException e){
+                System.out.print("                                   >>>>> INVALID USERNAME   <<<<");
+                System.out.println();
+            }
+        }
         
         while(true)
         {
@@ -41,9 +71,14 @@ public class Destination {
             try 
             {
                 booking = Integer.parseInt((new java.io.BufferedReader(new java.io.InputStreamReader(System.in))).readLine());
-                break;
+                if(booking>=1  && booking<=5)
+                    break;
+                else booking=Integer.parseInt("u");
             } catch (IOException ex) {}
-            catch(NumberFormatException e){}
+            catch(NumberFormatException e)
+            {
+                System.err.print(">>>   INVALID NUMBER   <<<");
+            }
         }
         while(true)
         {
@@ -122,15 +157,9 @@ public class Destination {
         if(f)
         {
             System.err.println("\t\t>>>     TICKET IS SUCCESSFULLY BOOKED    <<<");
-            new Billing().billingMyTickets(travelstate, money,  seats);
+            new Billing().billingMyTickets(username,travelstate, money,  seats);
         }
         return f;
-    }
-    
-    static private String username=new String();
-    public void getUsername(String username)
-    {
-        this.username=username;
     }
     
     public void accessDestination()
@@ -159,11 +188,9 @@ public class Destination {
                 break;
                 
                 case 3:
-                    System.out.println();
-                    System.out.println();
-                        if(new Process().display()==false)
-                            break;
+                    new Process().display();
                     break;
+                    
                 default: 
                     System.err.println("\n\t\t>>>    INVALID OPTION   <<<");
             }         
