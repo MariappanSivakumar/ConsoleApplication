@@ -19,7 +19,7 @@ public class Process {
         {
             int num=Integer.parseInt((new java.io.BufferedReader(new java.io.InputStreamReader(System.in))).readLine());
             if(num==1)getLogin();
-            if(num==0)return;
+            if(num==0)System.exit(0);
         }catch(java.io.IOException e){}
         catch(NumberFormatException e)
         {
@@ -29,7 +29,17 @@ public class Process {
     }
     static private String username=new String();
     static private String password=new String();
-    void getLogin()
+    private void agianLogin()
+    {
+        System.out.print("ENTER THE ( 1 ) AGAIN LOGIN ( 0 ) EXIT >");
+        try {
+            if(Integer.parseInt((new java.io.BufferedReader(new java.io.InputStreamReader(System.in))).readLine())==1)
+                getLogin();
+            else System.exit(0);
+        } catch (IOException ex) {}
+     catch(NumberFormatException e){}       
+    }
+    public void getLogin()
     {
       try {
           System.out.print("ENTER THE USER NAME >");
@@ -42,14 +52,17 @@ public class Process {
           System.out.println();
           display();
           
-      } catch (IOException | NumberFormatException ex) {}
+      } catch (IOException | NumberFormatException ex) 
+      {
+          agianLogin();
+      }
     }
-    public boolean display()
+    public void display()
     {
-        boolean f=true;
+      boolean f=false;
       int number=0;
       if(getValidate(username, password))
-      while( number != 4 )
+      while( true )
       {
          System.out.println("********************************************");
          System.out.println("**        BUS TICKETING SYSTEM        **");
@@ -70,7 +83,6 @@ public class Process {
          switch(number)
          {
              case 1:
-                 new Destination().getUsername(username);
                  new Destination().accessDestination();
              break;
                  
@@ -81,16 +93,19 @@ public class Process {
              
              case 3:
                  ShowRoots viewObj=new ShowRoots();
+                 viewObj.showroots( );
              break;
              
              case 4:
-                 f=false;
-                 
+                 agianLogin();
+                break;
+             default:
+                 System.err.print("     >>  INVALID  INPUT   <<");
          }
+         if(f)break;
       }
       else {
          errorHandle();
       }
-      return f;
   }
 }
