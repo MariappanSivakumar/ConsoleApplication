@@ -17,7 +17,7 @@ class Calculator
 		String s=new String();
 		for(int i=0;i<expression.length();i++)
 		{
-			if(expression.charAt(i)>=48&&expression.charAt(i)<=57)
+			if(expression.charAt(i)>=48&&expression.charAt(i)<=57 || expression.charAt(i)=='.' || expression.charAt(i)=='E')
 				s+=expression.charAt(i);
 			else 
 			{
@@ -43,7 +43,7 @@ class Calculator
 				{
 					if(arrayList.get(i).equals(" ")==false && arrayList.get(i-1).equals(" ")==false && arrayList.get(i+1).equals(" ")==false)
 					{
-						arrayList.set(i+1,""+sum(Integer.parseInt(arrayList.get(i-1)),Integer.parseInt(arrayList.get(i+1)),c)); 
+						arrayList.set(i+1,""+sum(Double.parseDouble(arrayList.get(i-1)),Double.parseDouble(arrayList.get(i+1)),c)); 
 						arrayList.set(i," ");
 						arrayList.set(i-1," ");
 					}
@@ -59,10 +59,10 @@ class Calculator
 		}
 		return value;
 	}
-	public static int sum(int n1,int n2,char c)
+	public static double sum(double n1,double n2,char c)
 	{
 		//To evaluvate the expression 
-		int sum=0;
+		double sum=0;
 		try {
 			sum=(c=='%'?n1%n2:(c=='/'?n1/n2:(c=='*'?n1*n2:(c=='+'?n1+n2:(c=='-'?n1-n2:0)))));
 		}catch(NumberFormatException e){
