@@ -1,0 +1,14 @@
+Project Planning :
+======= ==========
+Modules:
+========
+       ----> Admin
+            ---> Show Flight
+            ---> Add Flight
+            ----> Show Passengers
+       ----> User
+            ---> Ticket Booking
+            ---> Ticket Canceled
+            ---> Show Tickets
+            ---> Show Routes
+            ---> Show Flights
