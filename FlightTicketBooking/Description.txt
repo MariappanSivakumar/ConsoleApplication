@@ -1,0 +1,22 @@
+Project Planning :
+======= ==========
+Modules:
+========
+       ----> Admin
+            ---> Show Flight
+                      1. Show the flight details like Flight id, Name, start time, end time  
+            ---> Add Flight
+                      1. Add The New Flight if you can use the class
+            ----> Show Passengers
+                      2. To search the particular person details using the class 
+       ----> User
+            ---> Ticket Booking
+                 1. This class is used user can book a ticket using flightid 
+            ---> Ticket Canceled
+                 2. This class is used to user can cancelled the tickets 
+            ---> Show Tickets
+                 3. To show the avaliable tickets
+            ---> Show Routes
+                 4. Show flight routes of the selected flights
+            ---> Show Flights
+                Show the all flights. 
