@@ -1,1 +1,15 @@
+Calculator Application:
+=======================
+    1. ARITHMETIC CALCULATION
+		2. SHOW CALCULATION HISTORY
+		3. CLEAR HISTORY
+		4. EXIT
 
+If you select 1st menu given the string type expression and process show the Answer 
+
+If you select the 2st menu show the all history of you previously did the calculation.
+
+If you select the 3st option clear the all history of you previously did the calculation.
+
+
+Also this calculator application follow the BODMAS rule.
