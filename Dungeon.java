@@ -79,7 +79,7 @@ class Dungeon
 				if(move==0) moves(dungeonMatrix, adventurer[0]+1, adventurer[1], trigger[0], trigger[1], 1, 'A',"");advenTotriggerMove = move;
 				if(move==0) moves(dungeonMatrix, adventurer[0]-1, adventurer[1], trigger[0], trigger[1], 1, 'A',"");advenTotriggerMove = move;
 				if(move==0) moves(dungeonMatrix, adventurer[0], adventurer[1]+1, trigger[0], trigger[1], 1, 'A',"");advenTotriggerMove = move;
-				if(move==0) moves(dungeonMatrix, adventurer[0]+1, adventurer[1]-1, trigger[0], trigger[1], 1, 'A',"");advenTotriggerMove = move;
+				if(move==0) moves(dungeonMatrix, adventurer[0], adventurer[1]-1, trigger[0], trigger[1], 1, 'A',"");advenTotriggerMove = move;
 				move = 0;
 
 				moves(dungeonMatrix, trigger[0], trigger[1], gold[0], gold[1], 0, 'T',"");
